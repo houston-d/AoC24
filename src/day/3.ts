@@ -28,6 +28,7 @@ export const part2 = (input: string): number => {
     if (include && /mul/g.test(m)) {
       consider.push(m);
     }
+    
     if (/don\'t/g.test(m)) {
       include = false;
     } else if (/do/g.test(m)) {

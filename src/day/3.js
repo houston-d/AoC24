@@ -19,11 +19,12 @@ var part1 = function (input) {
 };
 exports.part1 = part1;
 var part2 = function (input) {
+    var _a;
     var include = true;
     var consider = [];
-    var matches = input.replace("\n", "").match(pattern2);
-    for (var _i = 0, _a = matches !== null && matches !== void 0 ? matches : []; _i < _a.length; _i++) {
-        var m = _a[_i];
+    var matches = (_a = input.replace("\n", "").match(pattern2)) !== null && _a !== void 0 ? _a : [];
+    for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
+        var m = matches_1[_i];
         if (include && /mul/g.test(m)) {
             consider.push(m);
         }
