@@ -90,7 +90,7 @@ var permutator = function (inputArr) {
     var result = [];
     var permute = function (arr, m) {
         if (m === void 0) { m = []; }
-        if (arr.length === 0) {
+        if (arr.length === 0 && !!m) {
             result.push(m);
         }
         else {
