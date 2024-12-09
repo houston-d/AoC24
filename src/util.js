@@ -62,8 +62,8 @@ var readFile = function (day) { return __awaiter(void 0, void 0, void 0, functio
                 sessionStr = 'session='.concat(sessionId);
                 return [4 /*yield*/, axios_1.default.get(url, { headers: { Cookie: sessionStr } })
                         .then(function (response) {
-                        (0, fs_1.writeFileSync)(path, response.data);
-                        return response.data;
+                        (0, fs_1.writeFileSync)(path, "".concat(response.data));
+                        return "".concat(response.data);
                     })
                         .catch(function (error) {
                         console.error('Error while fetching input ' + error);

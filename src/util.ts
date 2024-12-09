@@ -27,8 +27,8 @@ export const readFile = async (day: number): Promise<string> => {
 
   const input: string = await axios.get(url, { headers: { Cookie: sessionStr } })
   .then(response => {
-      writeFileSync(path, response.data);
-      return response.data;
+      writeFileSync(path, `${response.data}`);
+      return `${response.data}`;
     })
   .catch((error) => {
       console.error('Error while fetching input ' + error);
