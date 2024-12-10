@@ -68,9 +68,21 @@ export const permutator = (inputArr: any[]): any[][] => {
  return result;
 }
 
-export const swapArray = (Array:any,Swap1:number,Swap2:number) : any => {
-    var temp = Array[Swap1];
-    Array[Swap1] = Array[Swap2]
-    Array[Swap2] = temp
-    return Array;
+export const swapArray = (arr: any[], s1: number, s2: number): any[] => {
+    const temp = arr[s1];
+    arr[s1] = arr[s2];
+    arr[s2] = temp;
+
+    return arr;
+}
+
+export const getAllIndexesForValue = (val: any, arr: any[]): number[] => {
+  const indexes: number[] = [];
+  let i: number = -1;
+
+  while ((i = arr.indexOf(val, i+1)) != -1){
+      indexes.push(i);
+  }
+
+  return indexes;
 }
