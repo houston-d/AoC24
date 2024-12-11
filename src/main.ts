@@ -1,8 +1,11 @@
-import { part1, part2 } from '../src/day/10';
-import { readFile } from '../src/util';
+import { part1, part2 } from "../src/day/11";
+import { readFile } from "../src/util";
 
-
-readFile(10).then(file => {
-  console.log(part1(file));
-  console.log(part2(file));
+readFile(11).then((file) => {
+    console.time("part1");
+    console.log(part1(file));
+    console.timeEnd("part1");
+    console.time("part2");
+    console.log(part2(file));
+    console.timeEnd("part2");
 });

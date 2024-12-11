@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllIndexes = exports.swapArray = exports.permutator = exports.sortStringList = exports.readFile = void 0;
+exports.getAllIndexesForValue = exports.swapArray = exports.permutator = exports.sortStringList = exports.readFile = void 0;
 var fs_1 = require("fs");
 var axios_1 = require("axios");
 var readFile = function (day) { return __awaiter(void 0, void 0, void 0, function () {
@@ -105,14 +105,14 @@ var permutator = function (inputArr) {
     return result;
 };
 exports.permutator = permutator;
-var swapArray = function (Array, Swap1, Swap2) {
-    var temp = Array[Swap1];
-    Array[Swap1] = Array[Swap2];
-    Array[Swap2] = temp;
-    return Array;
+var swapArray = function (arr, s1, s2) {
+    var temp = arr[s1];
+    arr[s1] = arr[s2];
+    arr[s2] = temp;
+    return arr;
 };
 exports.swapArray = swapArray;
-var getAllIndexes = function (arr, val) {
+var getAllIndexesForValue = function (val, arr) {
     var indexes = [];
     var i = -1;
     while ((i = arr.indexOf(val, i + 1)) != -1) {
@@ -120,4 +120,4 @@ var getAllIndexes = function (arr, val) {
     }
     return indexes;
 };
-exports.getAllIndexes = getAllIndexes;
+exports.getAllIndexesForValue = getAllIndexesForValue;
