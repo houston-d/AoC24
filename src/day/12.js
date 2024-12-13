@@ -2,10 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.part2 = exports.part1 = void 0;
 var example = "RRRRIICCFF\nRRRRIICCCF\nVVRRRCCFFF\nVVRCCCJFFF\nVVVVCJJCFE\nVVIVCCJJEE\nVVIIICJJEE\nMIIIIIJJEE\nMIIISIJEEE\nMMMISSJEEE";
-var example2 = "OOOOO\nOXOXO\nOOOOO\nOXOXO\nOOOOO";
-var example3 = "AAAA\nBBCD\nBBCC\nEEEC";
-var example4 = "EEEEE\nEXXXX\nEEEEE\nEXXXX\nEEEEE";
-var example5 = "AAAAAA\nAAABBA\nAAABBA\nABBAAA\nABBAAA\nAAAAAA";
 var Point = /** @class */ (function () {
     function Point(x_, y_) {
         this.x = x_;
@@ -91,7 +87,6 @@ var generateRegions = function (garden) {
         }
     }
     return plantLocations;
-    // console.log(plantLocations);
 };
 var constructPlotForPoint = function (plant, allPlants) {
     var plot = [
@@ -159,9 +154,6 @@ var isInsideCorner = function (plot) {
         total++;
     if (b && c && w)
         total++;
-    // . . .
-    // x x x
-    // . . .
     return total;
 };
 var getSidesForRegion = function (plants) {
@@ -173,7 +165,6 @@ var getSidesForRegion = function (plants) {
     });
 };
 var part1 = function (input) {
-    input = example3;
     var garden = input.split("\n").map(function (c) { return c.split(""); });
     var plantLocations = generateRegions(garden);
     return Object.entries(plantLocations)
