@@ -1,7 +1,7 @@
-import { part1, part2 } from "../src/day/13";
+import { part1, part2 } from "../src/day/14";
 import { readFile } from "../src/util";
 
-readFile(13).then((file) => {
+readFile(14).then((file) => {
     console.time("part1");
     console.log(part1(file));
     console.timeEnd("part1");

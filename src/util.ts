@@ -86,3 +86,53 @@ export const getAllIndexesForValue = (val: any, arr: any[]): number[] => {
 
   return indexes;
 }
+
+
+export class Point {
+    private x: number;
+    private y: number;
+
+    constructor(x_: number, y_: number) {
+        this.x = x_;
+        this.y = y_;
+    }
+
+    add(other: Point): Point {
+        return new Point(this.x + other.x, this.y + other.y);
+    }
+
+    equals(other: Point): boolean {
+        return this.x == other.x && this.y == other.y;
+    }
+
+    toString(): string {
+        return `(${this.x}, ${this.y})`;
+    }
+
+    getX(): number {
+        return this.x;
+    }
+
+    getY(): number {
+        return this.y;
+    }
+
+    multiply(v: number): Point {
+        return new Point(this.x * v, this.y * v);
+    }
+
+    modulo(xMod: number, yMod: number): Point {
+        let xNew: number = this.x % xMod;
+        let yNew: number = this.y % yMod;
+
+        if (xNew < 0) {
+            xNew = xMod + xNew;
+        }
+
+        if (yNew < 0) {
+            yNew = yMod + yNew;
+        }
+
+        return new Point(xNew, yNew);
+    }
+}

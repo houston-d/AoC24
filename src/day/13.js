@@ -10,7 +10,7 @@ var parseInput = function (input, offset) {
         var machine = {
             A: { x: parseInt(match[1], 10), y: parseInt(match[2], 10) },
             B: { x: parseInt(match[3], 10), y: parseInt(match[4], 10) },
-            Prize: {
+            P: {
                 x: parseInt(match[5], 10) + offset,
                 y: parseInt(match[6], 10) + offset,
             },
@@ -19,32 +19,18 @@ var parseInput = function (input, offset) {
     }
     return machines;
 };
-function extendedGcd(a, b) {
-    if (a === 0) {
-        return [b, 0, 1];
-    }
-    var _a = extendedGcd(b % a, a), gcd = _a[0], x1 = _a[1], y1 = _a[2];
-    var x = y1 - Math.floor(b / a) * x1;
-    var y = x1;
-    return [gcd, x, y];
-}
 var calculateCostForMachine = function (machine) {
-    var gcd = function (a, b) { return (b === 0 ? a : gcd(b, a % b)); };
-    var a_x = machine.A.x, a_y = machine.A.y;
-    var b_x = machine.B.x, b_y = machine.B.y;
-    var p_x = machine.Prize.x, p_y = machine.Prize.y;
-    var b = Math.floor((machine.A.x * machine.Prize.y - machine.A.y * machine.Prize.x) /
-        (machine.A.x * b_y - machine.A.y * b_x));
-    var a = Math.floor((machine.Prize.x - b_x * b) / machine.A.x);
+    var b = Math.floor((machine.P.y * machine.A.x - machine.P.x * machine.A.y) /
+        (machine.B.y * machine.A.x - machine.B.x * machine.A.y));
+    var a = Math.floor((machine.P.x - machine.B.x * b) / machine.A.x);
     if (a >= 0 &&
         b >= 0 &&
-        a * a_x + b * b_x == p_x &&
-        a * a_y + b * b_y == p_y)
+        a * machine.A.x + b * machine.B.x == machine.P.x &&
+        a * machine.A.y + b * machine.B.y == machine.P.y)
         return 3 * a + b;
     return 0;
 };
 var part1 = function (input) {
-    // input = example;
     var machines = parseInput(input, 0);
     return machines
         .map(function (m) { return calculateCostForMachine(m); })

@@ -1,35 +1,7 @@
+import { Point } from "../util";
+
 const example: string =
     "RRRRIICCFF\nRRRRIICCCF\nVVRRRCCFFF\nVVRCCCJFFF\nVVVVCJJCFE\nVVIVCCJJEE\nVVIIICJJEE\nMIIIIIJJEE\nMIIISIJEEE\nMMMISSJEEE";
-
-class Point {
-    private x: number;
-    private y: number;
-
-    constructor(x_: number, y_: number) {
-        this.x = x_;
-        this.y = y_;
-    }
-
-    add(other: Point): Point {
-        return new Point(this.x + other.x, this.y + other.y);
-    }
-
-    equals(other: Point): boolean {
-        return this.x == other.x && this.y == other.y;
-    }
-
-    toString(): string {
-        return `(${this.x}, ${this.y})`;
-    }
-
-    getX(): number {
-        return this.x;
-    }
-
-    getY(): number {
-        return this.y;
-    }
-}
 
 interface Location {
     [key: string]: Point[];

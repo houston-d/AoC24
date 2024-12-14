@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllIndexesForValue = exports.swapArray = exports.permutator = exports.sortStringList = exports.readFile = void 0;
+exports.Point = exports.getAllIndexesForValue = exports.swapArray = exports.permutator = exports.sortStringList = exports.readFile = void 0;
 var fs_1 = require("fs");
 var axios_1 = require("axios");
 var readFile = function (day) { return __awaiter(void 0, void 0, void 0, function () {
@@ -121,3 +121,40 @@ var getAllIndexesForValue = function (val, arr) {
     return indexes;
 };
 exports.getAllIndexesForValue = getAllIndexesForValue;
+var Point = /** @class */ (function () {
+    function Point(x_, y_) {
+        this.x = x_;
+        this.y = y_;
+    }
+    Point.prototype.add = function (other) {
+        return new Point(this.x + other.x, this.y + other.y);
+    };
+    Point.prototype.equals = function (other) {
+        return this.x == other.x && this.y == other.y;
+    };
+    Point.prototype.toString = function () {
+        return "(".concat(this.x, ", ").concat(this.y, ")");
+    };
+    Point.prototype.getX = function () {
+        return this.x;
+    };
+    Point.prototype.getY = function () {
+        return this.y;
+    };
+    Point.prototype.multiply = function (v) {
+        return new Point(this.x * v, this.y * v);
+    };
+    Point.prototype.modulo = function (xMod, yMod) {
+        var xNew = this.x % xMod;
+        var yNew = this.y % yMod;
+        if (xNew < 0) {
+            xNew = xMod + xNew;
+        }
+        if (yNew < 0) {
+            yNew = yMod + yNew;
+        }
+        return new Point(xNew, yNew);
+    };
+    return Point;
+}());
+exports.Point = Point;
